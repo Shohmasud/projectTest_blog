@@ -10,7 +10,7 @@ urlpatterns = [
     # /// Rest Api
     # GET
     path('get/api/v6/comments/', SerializerComments.as_view()),
-    path('get/api/v6/create/blog/show/', SerializerBlogShow.as_view()),
+    path('get/api/v6/blog/show/', SerializerBlogShow.as_view()),
 
     # Post
     path('post/api/v6/create/comments/', SerializerCommentsCreate.as_view()),

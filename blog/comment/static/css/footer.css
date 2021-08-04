@@ -1,0 +1,11 @@
+footer{
+    height: 60px;
+    width:100%;
+    background:#23272b;
+}
+.footer_block{
+    margin-top:1%;
+    margin-left: 5%;
+    color: white;
+    font-size:18px;
+}

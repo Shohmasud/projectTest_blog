@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'projectcomment',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
+        'HOST': 'apirest',
         'PORT': '5432',
     }
 }

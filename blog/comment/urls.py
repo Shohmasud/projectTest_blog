@@ -3,7 +3,7 @@ from .views import PostListView, PostDeleteView, PostListCommentView,SerializerC
 
 urlpatterns = [
     # url
-    path('blog/show', PostListView.as_view(), name='post-list'),
+    path('blog/show/', PostListView.as_view(), name='post-list'),
     path('comment/delete/<int:pk>', PostDeleteView.as_view(), name='post-delete'),
     path('comment/create/<int:pk>', PostListCommentView.as_view(), name='post-parent'),
 

@@ -56,3 +56,29 @@ class PostListView(View):
                                                       'blog_name':blog_name, 'blog_text':blog_text})
         pass
 
+
+
+"""" Класс описывающий вывод html элементов
+    и удаления данных отправленные из формы """
+class PostDeleteView(View):
+    # /// При вызове этого метода удаляем ранее сохранёные элементы базы
+    def get(self,request,pk=None):
+
+        #/// Выполняет функцию первоначального входа на страничку приложения
+        first_visitSite = 'True'
+        #/// id нужного элемета модели
+        pk_num = int(pk)
+
+        # /// Экземпляры формы
+        form = PostForm()
+        form_child = PostFormChild()
+
+        # /// Выполняет функцию удаления
+        delete = Comments.objects.get(pk=pk_num).delete()
+
+        # ///Модель комментов которое передаётся в mptt тег, для вывода дерево
+        comments = Comments.objects.all()
+        return render(request, 'delete.html', {'form': form, 'comments': comments,
+                                                  'form_child': form_child, 'i': first_visitSite,
+                                                  'blog_name': blog_name, 'blog_text': blog_text})
+

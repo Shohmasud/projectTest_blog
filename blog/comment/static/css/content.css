@@ -1,0 +1,59 @@
+.text_h4{
+    color: gray;
+    font-size: 20px;
+    margin-top:40%;
+}
+.text_h42{
+    color: gray;
+    font-size: 25px;
+    color: black;
+    font-weight:bolder;
+    text-align:center;
+    margin-top: 2%;
+    margin-left:-5%;
+}
+.p_{
+    font-size: 14px;
+    color: gray;
+    width: 40%;
+    text-align:center;
+    margin-top:2%;
+    margin-left:30%;
+}
+.content{
+    text-align:center;
+}
+.blog{
+    font-size:50px;
+    font-weight:lighter;
+    color: black;
+    font-family: Tahoma, sans-serif;
+    margin-left: 20%;
+    margin-top:5%;
+
+}
+.h5_comment{
+    font-size:22px;
+    color: gray;
+    font-weight: normal;
+    margin-left: -23%;
+}
+
+.if1{
+    margin-top: -5%;
+}
+
+.blog_text_width{
+    font-size:18px;
+    margin-top: 5%;
+}
+.comment{
+    margin-top:65px;
+}
+.content{
+    text-align:center;
+}
+
+.blog_all_text{
+    font-size:18px;
+}

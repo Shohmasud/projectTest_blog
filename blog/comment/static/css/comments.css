@@ -1,0 +1,43 @@
+
+.parent{
+    position: relative;
+}
+.child{
+    position: absolute;
+    margin-top: 10px;
+    margin-left:-1%;
+}
+
+.parent{
+    border:1px solid darkgrey;
+    border-left-width:10px;
+    width:100%;
+    height:110px;
+
+}
+.div_all{
+    font-size:15px;
+    margin-top: -5%;
+    margin-left: -50%;
+}
+
+.h5_comment_text{
+    padding-top:17px;
+    padding-left:20px;
+}
+.div_text_parent{
+    position: absolute;
+}
+.font_awesome{
+    position: relative;
+}
+.children{
+    margin-left:45%;
+    width: 70%;
+}
+.parent{
+    margin-bottom:130px;
+}
+strong{
+    margin-left:7px;
+}

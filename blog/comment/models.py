@@ -6,7 +6,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 class Blog(models.Model):
     nameBlog = models.CharField(verbose_name='Название блога', max_length=400, db_index=True, unique=True)
-    textBlog = models.TextField(unique=True,verbose_name='Текст блога',max_length=500000)
+    textBlog = models.TextField(unique=True,verbose_name='Текст блога',max_length=1000000000)
     showBlog = models.BooleanField(verbose_name='Показать нужный нужный блог', default=False)
 
     class Meta:

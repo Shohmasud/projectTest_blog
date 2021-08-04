@@ -1,0 +1,80 @@
+{% load mptt_tags %}
+{%load comment_tag%}
+{% include 'header.html' %}
+{% include 'content.html' %}
+<div class="comment">
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-5 col-sm-6">
+                <h5 class="h5_comment">Коментарии:</h5>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3 mb-5">
+            <div>
+                <form method="POST" action="{% url 'post-list' %}">
+                    {% csrf_token %}
+                    <div>{{ form }}</div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success mt-3 butt" id="prk">Submit!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <ul class="root">
+                {% recursetree comments %}
+                    <li>
+                        <div class="div_all">
+                            <div class="parent">
+                                <div class="div_text_parent">
+                                    <strong> comment</strong>: {{ node.created_on }}
+                                    <h5 class="h5_comment_text">{{ node.body }}</h5>
+                                </div>
+                                <div class="child ">
+                                    <div class="row justify-content-center mt-5">
+                                        <div class="col-md-5 col-sm-12 font_awesome">
+                                            <a href="{% url 'post-delete' node.id %}"
+                                               class="{{ node.id|text }}_fas_fa-trash"
+                                               style="color: #333;"><i class="fas fa-trash"></i></a>
+
+                                            <div class="{{ node.id|text }}_far_fa-comment-dots ">
+                                                <button id="{{ node.id }}_2_1"
+                                                        onclick="document.getElementById('{{ node.id }}').style.display='none'; document.getElementById('{{ node.id }}_2_1').style.display='none'; document.getElementById('{{ node.id }}_2_2').style.display='block';"
+                                                        style="display:none;"><i class="far fa-comment-dots"></i>
+                                                </button>
+                                                <button id="{{ node.id }}_2_2"
+                                                        onclick=" document.getElementById('{{ node.id }}').style.display='block'; document.getElementById('{{ node.id }}_2_2').style.display='none'; document.getElementById('{{ node.id }}_2_1').style.display='block';">
+                                                    <i class="far fa-comment-dots"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center mt-3 mb-5 two" id="{{ node.id }}"
+                                         style="display:none; margin-left:25%;">
+                                        <div class="col-md-5 col-sm-12 block1">
+                                            <form method="POST" action="{% url 'post-parent' node.id %}">
+                                                {% csrf_token %}
+                                                <div>{{ form_child }}</div>
+                                                <div class="d-grid gap-2">
+                                                    <button class="btn btn-success mt-3">Submit!</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if i == 'True' %}
+                                    <script>pr()</script>{% endif %}
+                            </div>
+                            <br>
+                            {% if not node.is_leaf_node %}
+                                <ul class="children">
+                                    {{ children }}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endrecursetree %}
+            </ul>
+        </div>
+    </div>
+</div>

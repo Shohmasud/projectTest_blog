@@ -8,7 +8,7 @@ from .personalModul import  *
 class SerializerComments(APIView):
     def get(self,request):
         all_object = Comments.objects.all()
-        serializers = sComment(all_object)
+        serializers = sComment(all_object,many=True)
         return Response(serializers.data)
 
 #// Serializer для создании(отправки) элементов коментарий
@@ -99,6 +99,7 @@ class PostDeleteView(View):
 
         #/// Выполняет функцию первоначального входа на страничку приложения
         first_visitSite = 'True'
+
         #/// id нужного элемета модели
         pk_num = int(pk)
 

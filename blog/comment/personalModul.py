@@ -11,3 +11,4 @@ from django.shortcuts import render, redirect
 from  rest_framework.response import Response
 from django.http import HttpResponse, HttpResponseRedirect
 from .utils import blog_name,blog_text
+from  comment.serializer import sComment,sCommentCreate,sSerializerBlogShow,sSerializerBlogCreate

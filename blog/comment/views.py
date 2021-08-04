@@ -3,6 +3,39 @@
 #/// Rest Api методом GET
 from .personalModul import  *
 
+# API КЛАССЫ
+#// Serializer для вывода ранее созданных коментарий
+class SerializerComments(APIView):
+    def get(self,request):
+        all_object = Comments.objects.all()
+        serializers = sComment(all_object)
+        return Response(serializers.data)
+
+#// Serializer для создании(отправки) элементов коментарий
+class SerializerCommentsCreate(APIView):
+        def post(self, request):  # отправим название файла csv,считываем и добавляем данные в базу данных
+            serializer = sCommentCreate(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response("OK")
+            return Response("ERROR")
+
+#// Serializer для создания(отпрвки) элементов Блога
+class SerializerBlogCreate(APIView):
+    def post(self, request):
+        serializer = sSerializerBlogCreate(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("OK")
+        return Response("ERROR")
+
+#// Serializer для вывода элементов Блога
+class SerializerBlogShow(APIView):
+    def get(self, request):
+        all_object = Blog.objects.all()
+        serializers = sSerializerBlogShow(all_object,many=True)
+        return Response(serializers.data)
+
 
 """" Класс описывающий вывод html элементов
     и отпраку данных в форму и её вывод """
